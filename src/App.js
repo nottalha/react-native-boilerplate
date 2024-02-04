@@ -1,40 +1,14 @@
-import {
-  View,
-  Text,
-  StatusBar,
-  useColorScheme,
-  StyleSheet,
-  TouchableOpacity,
-} from 'react-native';
 import React from 'react';
-import {Buttons, Colors, Typography} from './styles';
+import {NavigationContainer} from '@react-navigation/native';
+import AppNavigator from './navigation/AppNavigator';
 
 const App = () => {
+  console.log('AppNavigator');
   return (
-    <View style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.header}>Time</Text>
-      </View>
-      <View style={styles.section}>
-        <Text style={styles.header}>LESGO</Text>
-      </View>
-    </View>
+    <NavigationContainer>
+      <AppNavigator />
+    </NavigationContainer>
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: Colors.primary.s600,
-    alignItems: 'center',
-  },
-  header: {
-    flex: 1,
-    ...Typography.header.x70,
-  },
-  section: {
-    flex: 3,
-    ...Typography.section,
-  },
-});
 export default App;
