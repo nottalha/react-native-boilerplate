@@ -3,9 +3,9 @@ import {Colors} from '../styles';
 import {BottomNavigation} from 'react-native-paper';
 import {CommonActions} from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import SignInScreen from '../screens/authentication/SignInScreen';
 import SignUpScreen from '../screens/authentication/SignUpScreen';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import ProfileScreen from '../screens/root/Profile';
 
 const Tab = createBottomTabNavigator();
 export default function BottomNavigationS() {
@@ -74,8 +74,8 @@ export default function BottomNavigationS() {
         />
       )}>
       <Tab.Screen
-        name="HomeScreen"
-        component={SignInScreen}
+        name="ProfileScreen"
+        component={ProfileScreen}
         color="yellow"
         options={{
           tabBarLabel: 'Home',

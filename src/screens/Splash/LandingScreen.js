@@ -1,8 +1,10 @@
-import React, { useEffect } from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import React, {useEffect} from 'react';
+import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 
-import {Colors, Typography} from '../../styles';
+import {Buttons, Colors, Typography} from '../../styles';
+
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const LandingScreen = () => {
   const navigation = useNavigation();
@@ -21,13 +23,21 @@ const LandingScreen = () => {
   //   }
   // };
 
-  useEffect(() => {
-    navigation.navigate('Authentication');
-  }, []);
-  console.log('AppNavigator 3');
+  const handleNavigation = () => navigation.navigate('Authentication');
+
+  const handleRootNavigation = () => navigation.navigate('RootStack');
+
   return (
     <View style={styles.container}>
-      <Text>Landing Screen</Text>
+      <Text style={{}}>Loading Page</Text>
+      <TouchableOpacity style={Buttons.bar.primary} onPress={handleNavigation}>
+        <Text style={Buttons.barText.primary}>Go to - Authentication</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={Buttons.bar.primary}
+        onPress={handleRootNavigation}>
+        <Text style={Buttons.barText.primary}>Go to - RootStack</Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -37,8 +47,8 @@ export default LandingScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: Colors.primary.s600,
     alignItems: 'center',
+    justifyContent: 'center',
   },
   header: {
     flex: 1,
