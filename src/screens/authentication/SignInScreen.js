@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {
+  ImageBackground,
   StatusBar,
   StyleSheet,
   Text,
@@ -7,8 +8,13 @@ import {
   View,
 } from 'react-native';
 import {Buttons, Typography} from '../../styles';
-import {TextInput} from 'react-native-paper';
+import {BlurView} from '@react-native-community/blur';
+
 import {BigHeader} from '../../components/Header';
+import {TextInputGlass} from '../../components/TextInput';
+import {BlurButton, GlassButton} from '../../components/Button';
+import {BackgroundImageGlass} from '../../components/Background';
+import GlassContainer from '../../components/GlassContainer';
 
 const SignInScreen = ({navigation}) => {
   const [user, setUser] = useState({
@@ -19,17 +25,18 @@ const SignInScreen = ({navigation}) => {
 
   return (
     <View style={styles.container}>
-      <BigHeader title={'Sign In'} />
-      <View style={styles.glassContainer}>
-        <TextInput label={'email'} value={user.email} />
-        <TextInput label={'password'} value={user.password} />
-        <TouchableOpacity
-          style={Buttons.bar.primary}
-          onPress={handleNavigation}>
-          <Text style={Buttons.barText.primary}>Go to - Sign up</Text>
-        </TouchableOpacity>
-      </View>
-      <View style={{flex: 1}} />
+      <BackgroundImageGlass>
+        <BigHeader title={'Sign In'} />
+        <GlassContainer>
+          <View style={styles.glassContainer}>
+            <TextInputGlass label={'Email'} value={user.email} />
+            <TextInputGlass label={'Password'} value={user.password} />
+            <GlassButton title={'Go to - Sign up'} onPress={handleNavigation} />
+          </View>
+        </GlassContainer>
+
+        <View style={{flex: 1}} />
+      </BackgroundImageGlass>
     </View>
   );
 };
@@ -44,11 +51,6 @@ const styles = StyleSheet.create({
   },
   glassContainer: {
     flex: 1,
-    width: '80%',
-    justifyContent: 'space-around',
-  },
-  section: {
-    flex: 3,
-    ...Typography.section,
+    justifyContent: 'space-between',
   },
 });

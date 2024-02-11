@@ -1,10 +1,18 @@
-import React, {useEffect} from 'react';
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import React from 'react';
+import {StyleSheet, View} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
-
-import {Buttons, Colors, Typography} from '../../styles';
-
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import {
+  Canvas,
+  Fill,
+  Image,
+  useImage,
+  BackdropBlur,
+} from '@shopify/react-native-skia';
+import {Typography} from '../../styles';
+import {GlassButton} from '../../components/Button';
+import GlassContainer from '../../components/GlassContainer';
+import {BigHeader} from '../../components/Header';
+import {BackgroundImageGlass} from '../../components/Background';
 
 const LandingScreen = () => {
   const navigation = useNavigation();
@@ -23,21 +31,48 @@ const LandingScreen = () => {
   //   }
   // };
 
+  // https://kazzkiq.github.io/svg-color-filter/
+  const BLACK_AND_WHITE = [
+    0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0,
+  ];
+  const Filter = () => {
+    const image = useImage(require('../../assets/images/oslo.jpg'));
+    // const image = useImage(require('./assets/oslo.jpg'));
+
+    return (
+      <Canvas style={{width: 256, height: 256, borderRadius: 10}}>
+        <Image image={image} x={0} y={0} width={256} height={256} fit="cover" />
+        <BackdropBlur blur={4} clip={{x: 0, y: 128, width: 256, height: 128}}>
+          <Fill color="#eeeeee50" />
+        </BackdropBlur>
+      </Canvas>
+    );
+  };
+
   const handleNavigation = () => navigation.navigate('Authentication');
 
   const handleRootNavigation = () => navigation.navigate('RootStack');
 
   return (
     <View style={styles.container}>
-      <Text style={{}}>Loading Page</Text>
-      <TouchableOpacity style={Buttons.bar.primary} onPress={handleNavigation}>
-        <Text style={Buttons.barText.primary}>Go to - Authentication</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={Buttons.bar.primary}
-        onPress={handleRootNavigation}>
-        <Text style={Buttons.barText.primary}>Go to - RootStack</Text>
-      </TouchableOpacity>
+      <BackgroundImageGlass>
+        <BigHeader title={'Welcome'} />
+        <GlassContainer>
+          <View style={styles.glassContainer}>
+            <GlassButton title={'Landing page'} />
+            <GlassButton
+              title={'Go to - Authentication'}
+              onPress={handleNavigation}
+            />
+            <GlassButton
+              title={'Go to - RootStack'}
+              onPress={handleRootNavigation}
+            />
+          </View>
+        </GlassContainer>
+        {/* <Filter /> */}
+        <View style={{flex: 1}} />
+      </BackgroundImageGlass>
     </View>
   );
 };
@@ -47,15 +82,9 @@ export default LandingScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
   },
-  header: {
+  glassContainer: {
     flex: 1,
-    ...Typography.header.x70,
-  },
-  section: {
-    flex: 3,
-    ...Typography.section,
+    justifyContent: 'space-around',
   },
 });

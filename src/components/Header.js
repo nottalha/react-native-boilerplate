@@ -26,6 +26,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   header: {
+    color: Colors.neutral.white,
     ...Typography.header.x70,
   },
 });
