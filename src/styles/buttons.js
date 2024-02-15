@@ -8,7 +8,7 @@ const bar = {
   primary: {
     alignItems: 'center',
     justifyContent: 'center',
-    padding: Sizing.layout.x30,
+    padding: Sizing.layout.x15,
     borderRadius: Outlines.borderRadius.base,
     backgroundColor: Colors.primary.brand,
   },

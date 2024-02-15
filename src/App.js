@@ -1,40 +1,31 @@
-import {
-  View,
-  Text,
-  StatusBar,
-  useColorScheme,
-  StyleSheet,
-  TouchableOpacity,
-} from 'react-native';
 import React from 'react';
-import {Buttons, Colors, Typography} from './styles';
+import AppNavigator from './navigation/AppNavigator';
+import {NavigationContainer} from '@react-navigation/native';
+import {GestureHandlerRootView} from 'react-native-gesture-handler';
+import {
+  Button,
+  Provider as PaperProvider,
+  DefaultTheme,
+} from 'react-native-paper';
 
 const App = () => {
+  const theme = {
+    ...DefaultTheme,
+    colors: {
+      ...DefaultTheme.colors,
+      primary: '#660033', // Adjust opacity as needed
+    },
+    roundness: 10, // Adjust input roundness as needed
+  };
   return (
-    <View style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.header}>Time</Text>
-      </View>
-      <View style={styles.section}>
-        <Text style={styles.header}>LESGO</Text>
-      </View>
-    </View>
+    <PaperProvider theme={theme}>
+      <GestureHandlerRootView style={{flex: 1}}>
+        <NavigationContainer>
+          <AppNavigator />
+        </NavigationContainer>
+      </GestureHandlerRootView>
+    </PaperProvider>
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: Colors.primary.s600,
-    alignItems: 'center',
-  },
-  header: {
-    flex: 1,
-    ...Typography.header.x70,
-  },
-  section: {
-    flex: 3,
-    ...Typography.section,
-  },
-});
 export default App;
