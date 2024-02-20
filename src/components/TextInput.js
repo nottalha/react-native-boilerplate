@@ -24,15 +24,37 @@ const TextInputGlass = props => {
     </View>
   );
 };
+const TextInputBlur = props => {
+  const {value, label, placeholder} = props;
+  return (
+    <View style={styles.container}>
+      <TextInput
+        value={value}
+        label={label}
+        style={styles.glass}
+        theme={{roundness: 15}} // <---- Here
+        textColor={Colors.transparent.darkGray}
+        placeholderTextColor={Colors.transparent.clear}
+        underlineColor="white"
+        placeholder={placeholder}
+        {...props}
+      />
+    </View>
+  );
+};
 
-export {TextInputGlass};
+export {TextInputGlass, TextInputBlur};
 
 const styles = StyleSheet.create({
   container: {
-    overflow: 'hidden',
+    // flex: 1,
+    // overflow: 'hidden',
     borderRadius: 15,
     borderBottomLeftRadius: 5,
     borderBottomRightRadius: 5,
+
+    backgroundColor: 'rgba(33, 84, 43, 0.8)', // Adjust opacity as needed
+    width: '90%',
   },
   glass: {
     borderRadius: 10,

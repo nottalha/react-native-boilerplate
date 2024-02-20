@@ -57,6 +57,7 @@ const styles = StyleSheet.create({
     borderWidth: 0.5,
     borderColor: 'silver',
     height: Sizing.x50,
+    width:'90%'
   },
   blurView: {
     position: 'absolute',

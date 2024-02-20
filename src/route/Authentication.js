@@ -15,12 +15,6 @@ export default function Authentication() {
       }}>
       <AuthenticationStack.Screen name="SignIn" component={SignInScreen} />
       <AuthenticationStack.Screen name="SignUp" component={SignUpScreen} />
-      {/* <AuthenticationStack.Screen
-        name="ResetPassword"
-        component={ResetPassword}
-      /> */}
-
-      {/* <Stack.Screen name="ResetPassword" component={ResetPassword} /> */}
     </AuthenticationStack.Navigator>
   );
 }

@@ -1,23 +1,28 @@
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
 import {Buttons, Typography} from '../../styles';
-import {GlassView} from '@metafic-co/react-native-glassmorphism';
 import {BigHeader} from '../../components/Header';
+import {BackgroundImageGlass} from '../../components/Background';
+import {GlassContainer3} from '../../components/GlassContainer';
+import {GlassButton} from '../../components/Button';
 
 const SignUpScreen = ({navigation}) => {
-  const handleNavigation = () => navigation.navigate('LandingScreen');
+  const handleNavigation = () => navigation.navigate('RootStack');
+
+  console.log('sign up');
   return (
-    <View style={styles.container}>
+    <BackgroundImageGlass>
       <BigHeader title={'Sign Up'} />
-      <View style={styles.glassContainer}>
-        <TouchableOpacity
-          style={Buttons.bar.primary}
-          onPress={handleNavigation}>
-          <Text style={Buttons.barText.primary}>Go to - Main Activity</Text>
-        </TouchableOpacity>
-      </View>
+
+      {/* <View style={styles.container}></View> */}
+      <GlassContainer3 viewStyle={styles.container}>
+        <GlassButton title={'WIn'} />
+        <GlassButton title={'WIn'} />
+        <GlassButton title={'WIn'} />
+        <GlassButton title={'WIn'} />
+      </GlassContainer3>
       <View style={{flex: 1}} />
-    </View>
+    </BackgroundImageGlass>
   );
 };
 
@@ -25,9 +30,11 @@ export default SignUpScreen;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 3,
+    width: '90%',
     alignItems: 'center',
-    justifyContent: 'center',
+    marginVertical: '10%',
+    justifyContent: 'space-around',
   },
   glassContainer: {
     flex: 1,

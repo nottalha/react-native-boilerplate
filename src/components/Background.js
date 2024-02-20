@@ -4,7 +4,7 @@ import {ImageBackground, StyleSheet, Text, View} from 'react-native';
 const BackgroundImageGlass = ({children}) => {
   return (
     <ImageBackground
-      source={require('../assets/images/glassmorphism.jpeg')} // Change the path to your background image
+      source={require('../assets/images/choco.jpeg')} // Change the path to your background image
       style={styles.background}
       resizeMode="cover">
       {children}

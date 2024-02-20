@@ -2,11 +2,7 @@ import React from 'react';
 import AppNavigator from './navigation/AppNavigator';
 import {NavigationContainer} from '@react-navigation/native';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
-import {
-  Button,
-  Provider as PaperProvider,
-  DefaultTheme,
-} from 'react-native-paper';
+import {Provider as PaperProvider, DefaultTheme} from 'react-native-paper';
 
 const App = () => {
   const theme = {
