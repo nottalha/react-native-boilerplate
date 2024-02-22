@@ -1,26 +1,37 @@
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {Button, StyleSheet, View} from 'react-native';
 import React from 'react';
-import {Buttons, Typography} from '../../styles';
-import {BigHeader} from '../../components/Header';
 import {BackgroundImageGlass} from '../../components/Background';
-import {GlassContainer3} from '../../components/GlassContainer';
-import {GlassButton} from '../../components/Button';
+import {BigHeader} from '../../components/Header';
 
 const SignUpScreen = ({navigation}) => {
   const handleNavigation = () => navigation.navigate('RootStack');
 
   console.log('sign up');
+  console.debug('focus');
+
   return (
     <BackgroundImageGlass>
-      <BigHeader title={'Sign Up'} />
+      {/* <BigHeader title={'Sign Up'} /> */}
 
       {/* <View style={styles.container}></View> */}
-      <GlassContainer3 viewStyle={styles.container}>
-        <GlassButton title={'WIn'} />
-        <GlassButton title={'WIn'} />
-        <GlassButton title={'WIn'} />
-        <GlassButton title={'WIn'} />
-      </GlassContainer3>
+      {/* <View style={styles.container}> */}
+      {/* <TextInputBlur label={'Email'} />
+        <TextInputBlur label={'Password'} /> */}
+      {/* <TextInput label={'pass'} /> */}
+      {/* </View> */}
+      {/* <GlassButton title={' - Sign In'} onPress={handleNavigation} /> */}
+      {/* <View style={{flex: 1}} /> */}
+
+      <BigHeader title={'Sign UP'} />
+
+      <View style={styles.container}>
+        {/* <TextInputBlur label={'Email'} />
+  <TextInputBlur label={'Password'} /> */}
+        {/* <TextInput label={'pass'} /> */}
+      </View>
+      {/* <GlassButton title={' - Sign In'} onPress={handleNavigation} /> */}
+      <Button title="Root" onPress={handleNavigation} />
+
       <View style={{flex: 1}} />
     </BackgroundImageGlass>
   );
@@ -33,16 +44,11 @@ const styles = StyleSheet.create({
     flex: 3,
     width: '90%',
     alignItems: 'center',
-    marginVertical: '10%',
     justifyContent: 'space-around',
   },
   glassContainer: {
     flex: 1,
     width: '80%',
     justifyContent: 'space-around',
-  },
-  section: {
-    flex: 3,
-    ...Typography.section,
   },
 });

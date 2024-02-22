@@ -31,6 +31,8 @@ const styles = StyleSheet.create({
     width: '90%',
     borderRadius: 10,
     overflow: 'scroll',
+    marginTop: '20%',
+    // backgroundColor: 'red',
   },
   header: {
     alignSelf: 'center',

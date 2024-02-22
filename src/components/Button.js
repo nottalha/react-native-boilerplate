@@ -15,10 +15,11 @@ const GlassButton = ({onPress, title}) => {
   return (
     <TouchableOpacity onPress={onPress} style={styles.buttonBlur}>
       <BlurView
+        overlayColor=""
         style={styles.blurView}
         blurType="light"
         blurAmount={10}
-        reducedTransparencyFallbackColor="white" // Fallback color in case of reduced transparency support
+        reducedTransparencyFallbackColor="powderblue" // Fallback color in case of reduced transparency support
       >
         <Text style={styles.textBlur}>{title}</Text>
       </BlurView>
@@ -57,7 +58,7 @@ const styles = StyleSheet.create({
     borderWidth: 0.5,
     borderColor: 'silver',
     height: Sizing.x50,
-    width:'90%'
+    width: '90%',
   },
   blurView: {
     position: 'absolute',

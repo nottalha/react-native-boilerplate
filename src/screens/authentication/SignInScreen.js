@@ -17,6 +17,7 @@ import {BlurButton, GlassButton} from '../../components/Button';
 import {BackgroundImageGlass} from '../../components/Background';
 import {GlassContainer2} from '../../components/GlassContainer';
 import {TextInput} from 'react-native-paper';
+import {useFocusEffect} from '@react-navigation/native';
 
 const SignInScreen = ({navigation}) => {
   const [user, setUser] = useState({
@@ -27,18 +28,18 @@ const SignInScreen = ({navigation}) => {
     console.log('Sign up vb8');
     navigation.navigate('SignUp');
   };
-
+  
   return (
     <BackgroundImageGlass>
       <BigHeader title={'Sign In'} />
 
       <View style={styles.container}>
-      
-        <TextInputBlur label={'Email'} />
-        <TextInputBlur label={'Password'} />
+        {/* <TextInputBlur label={'Email'} />
+        <TextInputBlur label={'Password'} /> */}
         {/* <TextInput label={'pass'} /> */}
       </View>
-      <GlassButton title={' - Sign In'} onPress={handleNavigation} />
+      {/* <GlassButton title={' - Sign In'} onPress={handleNavigation} /> */}
+      <Button title="Sign" onPress={handleNavigation} />
 
       <View style={{flex: 1}} />
     </BackgroundImageGlass>
